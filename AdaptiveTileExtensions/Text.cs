@@ -6,9 +6,22 @@ namespace AdaptiveTileExtensions
     {
         public string Content { get; set; }
         public TextStyle? Style { get; set; }
-        public TextAlignment? TextAlignment { get; set; }
+        public Alignment? Alignment { get; set; }
         public bool? WrapText { get; set; }
         public int? MaxLines { get; set; }
+        
+        /// <summary>
+        /// Gets or sets whether the subtle style is applied.
+        /// This results in a 60% opacity of text
+        /// </summary>
+        public bool? IsSubtleStyle { get; set; }
+
+        /// <summary>
+        /// Gets or sets the is numeral.
+        /// This results in a reduction of line height so that content above and below come extremely close to the text
+        /// This is only if the TextStyle is Title, SubHeader or Header
+        /// </summary>
+        public bool? IsNumeralStyle { get; set; }
 
         public Text()
         {
@@ -25,13 +38,26 @@ namespace AdaptiveTileExtensions
 
             if (Style.HasValue)
             {
-                var style = $" hint-style=\"{Style.Value}\"";
+                var value = Style.Value.ToString().ToLowerInvariant();
+                if (IsSubtleStyle.HasValue && IsSubtleStyle.Value)
+                {
+                    value += "Subtle";
+                }
+                else
+                {
+                    if (IsNumeralStyle.HasValue && IsNumeralStyle.Value)
+                    {
+                        value += "Numeral";
+                    }
+                }
+
+                var style = $" hint-style=\"{value}\"";
                 sb.Append(style);
             }
 
-            if (TextAlignment.HasValue)
+            if (Alignment.HasValue)
             {
-                var alignment = $" hint-align=\"{TextAlignment.Value}\"";
+                var alignment = $" hint-align=\"{Alignment.Value}\"";
                 sb.Append(alignment);
             }
 

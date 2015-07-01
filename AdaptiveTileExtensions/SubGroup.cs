@@ -7,7 +7,13 @@ namespace AdaptiveTileExtensions
     {
         private readonly List<Item> _items = new List<Item>();
 
-        public double? Width { get; set; }
+        /// <summary>
+        /// Gets or sets the width.
+        /// NOTE: An 8px margin gets added between columns
+        /// </summary>
+        public int? Width { get; set; }
+
+        public TextStacking? TextStacking { get; set; }
 
         public void AddText(Text text)
         {
@@ -32,6 +38,12 @@ namespace AdaptiveTileExtensions
             {
                 var width = $" hint-weight=\"{Width.Value}\"";
                 sb.Append(width);
+            }
+
+            if (TextStacking.HasValue)
+            {
+                var textStacking = $" hint-textStacking=\"{TextStacking.Value}\"";
+                sb.Append(textStacking);
             }
 
             sb.Append(">");

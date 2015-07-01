@@ -12,6 +12,8 @@ namespace AdaptiveTileExtensions
         public ImagePlacement Placement { get; set; }
         public string Source { get; set; }
         public bool? RemoveMargin { get; set; }
+        public Alignment? ImageAlignment { get; set; }
+        public ImageCropping? ImageCropping { get; set; }
 
         internal override string GetXml()
         {
@@ -24,6 +26,18 @@ namespace AdaptiveTileExtensions
             {
                 var margin = $" hint-removeMargin=\"{RemoveMargin.Value}\"";
                 sb.Append(margin);
+            }
+
+            if (ImageAlignment.HasValue)
+            {
+                var alignment = $" hint-align=\"{ImageAlignment.Value}\"";
+                sb.Append(alignment);
+            }
+
+            if (ImageCropping.HasValue)
+            {
+                var cropping = $" hint-crop=\"{ImageCropping.Value}\"";
+                sb.Append(cropping);
             }
 
             sb.Append("/>");

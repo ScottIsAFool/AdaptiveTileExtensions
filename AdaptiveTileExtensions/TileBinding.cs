@@ -26,6 +26,8 @@ namespace AdaptiveTileExtensions
 
         public TextStacking? TextStacking { get; set; }
 
+        public int? OverlayOpacity { get; set; }
+
         public void Add(Item item)
         {
             var subGroup = item as SubGroup;
@@ -70,6 +72,12 @@ namespace AdaptiveTileExtensions
             {
                 var textStacking = $" hint-textStacking=\"{TextStacking.Value}\"";
                 sb.Append(textStacking);
+            }
+
+            if (OverlayOpacity.HasValue)
+            {
+                var overlay = $" hint-overlay=\"{OverlayOpacity.Value}\"";
+                sb.Append(overlay);
             }
 
             sb.Append(">");

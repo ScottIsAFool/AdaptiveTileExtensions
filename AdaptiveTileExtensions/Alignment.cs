@@ -1,6 +1,6 @@
 ﻿namespace AdaptiveTileExtensions
 {
-    public enum TextAlignment
+    public enum Alignment
     {
         Left,
         Center,
