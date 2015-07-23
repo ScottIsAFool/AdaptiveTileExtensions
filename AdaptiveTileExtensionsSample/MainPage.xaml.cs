@@ -38,8 +38,8 @@ namespace AdaptiveTileExtensionsSample
             subgroup.AddText(header);
             subgroup.AddText(content);
 
-            binding.Add(logoSubGroup);
-            binding.Add(subgroup);
+            binding.AddSubgroup(logoSubGroup);
+            binding.AddSubgroup(subgroup, true);
 
             tile.Tiles.Add(binding);
             var xml = tile.GetXml();

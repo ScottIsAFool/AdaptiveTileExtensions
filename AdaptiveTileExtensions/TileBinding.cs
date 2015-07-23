@@ -7,7 +7,7 @@ namespace AdaptiveTileExtensions
     public class TileBinding
     {
         private readonly List<Item> _items = new List<Item>();
-        private readonly Group _group = new Group();
+        private Group _group = new Group();
 
         internal TileBinding()
         {
@@ -33,17 +33,35 @@ namespace AdaptiveTileExtensions
             var subGroup = item as SubGroup;
             if (subGroup != null)
             {
-                _group.SubGroups.Add(subGroup);
-
-                var groupAdded = _items.FirstOrDefault(x => x is Group);
-                if (groupAdded == null)
-                {
-                    _items.Add(_group);
-                }
+                AddSubgroup(subGroup);
             }
             else
             {
                 _items.Add(item);
+            }
+        }
+
+        /// <summary>
+        /// Adds the subgroup.
+        /// </summary>
+        /// <param name="subGroup">The sub group.</param>
+        /// <param name="addToNewGroup">if set to <c>true</c> [add to new group]. Once a new group has been added, no more subgroups can be added to any previous groups</param>
+        public void AddSubgroup(SubGroup subGroup, bool addToNewGroup = false)
+        {
+            if (subGroup != null)
+            {
+                if (addToNewGroup)
+                {
+                    _group = new Group();
+                }
+
+                _group.SubGroups.Add(subGroup);
+
+                var groupAdded = _items.LastOrDefault(x => x is Group);
+                if (groupAdded == null || addToNewGroup)
+                {
+                    _items.Add(_group);
+                }
             }
         }
 
