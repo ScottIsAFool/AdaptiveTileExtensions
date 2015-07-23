@@ -28,7 +28,7 @@ Information on what they are can be found in the Build 2015 talk about Tiles, No
     binding.Add(subgroup);
 
     tile.Tiles.Add(binding);
-    var xml = tile.GetXml();
+    var notification = tile.GetNotification();
 
 ## The Generated XML
     <tile version="3"><visual><binding template="TileWide" branding="None"><group><subgroup hint-weight="40"><image placement="Inline" src="http://fc02.deviantart.net/fs71/i/2013/359/a/4/deadpool_logo_1_fill_by_mr_droy-d5q6y5u.png"/></subgroup><subgroup><text hint-style="Body">You have mail</text><text hint-style="Caption">Someone likes you!</text></subgroup></group></binding></visual></tile>
