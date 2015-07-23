@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using Windows.UI.Notifications;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using AdaptiveTileExtensions;
 
@@ -42,13 +43,10 @@ namespace AdaptiveTileExtensionsSample
             binding.AddSubgroup(subgroup, true);
 
             tile.Tiles.Add(binding);
-            var xml = tile.GetXml();
+            var notification = tile.GetNotification();
 
-
-            if (string.IsNullOrEmpty(xml))
-            {
-                
-            }
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(notification);
+            
         }
     }
 }
