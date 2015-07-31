@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>AdaptiveTileExtensions</id>
+        <version>1.0.0</version>
+        <title />
+        <authors>ScottISAFool</authors>
+        <owners />
+        <licenseUrl>https://raw.githubusercontent.com/ScottIsAFool/AdaptiveTileExtensions/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/ScottIsAFool/AdaptiveTileExtensions</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Helper library to more easily create the notification to update tiles for all sizes</description>
+        <releaseNotes/>
+        <copyright>© Scott Lovegrove 2015</copyright>
+        <language>en-US</language>
+        <tags>Adaptive tiles uwp</tags>
+    </metadata>
+    <files>
+      
+      <file src="AdaptiveTileExtensions\bin\Release\AdaptiveTileExtensions.dll" target="lib\uap10.0\AdaptiveTileExtensions.dll" />
+      <file src="AdaptiveTileExtensions\bin\Release\AdaptiveTileExtensions.pdb" target="lib\uap10.0\AdaptiveTileExtensions.pdb" />
+      <file src="AdaptiveTileExtensions\bin\Release\AdaptiveTileExtensions.pri" target="lib\uap10.0\AdaptiveTileExtensions.pri" />
+      <file src="AdaptiveTileExtensions\Properties\AdaptiveTileExtensions.rd.xml" target="lib\uap10.0\AdaptiveTileExtensions\Properties\AdaptiveTileExtensions.rd.xml" />      
+    </files>
+</package>
