@@ -20,12 +20,6 @@ namespace AdaptiveTileExtensions
 
         public List<TileBinding> Tiles { get; set; }
 
-        [Obsolete("This will soon be removed, please use GetNotification()", true)]
-        public string GetXml()
-        {
-            return string.Empty;
-        }
-
         private string GetXmlInternal()
         {
             var sb = new StringBuilder();
