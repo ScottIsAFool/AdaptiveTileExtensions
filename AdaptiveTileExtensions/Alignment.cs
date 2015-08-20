@@ -4,6 +4,7 @@
     {
         Left,
         Center,
-        Right
+        Right,
+        Stretch
     }
 }

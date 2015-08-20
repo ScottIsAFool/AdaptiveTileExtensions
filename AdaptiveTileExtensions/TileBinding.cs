@@ -11,6 +11,7 @@ namespace AdaptiveTileExtensions
 
         internal TileBinding()
         {
+            
         }
 
         public static TileBinding Create(TemplateType templateType)
@@ -18,6 +19,9 @@ namespace AdaptiveTileExtensions
             return new TileBinding { TemplateType = templateType };
         }
 
+
+        public TileImage BackgroundImage { get; set; }
+         
         public TemplateType TemplateType { get; set; }
 
         public Branding? Branding { get; set; }
@@ -99,6 +103,12 @@ namespace AdaptiveTileExtensions
             }
 
             sb.Append(">");
+
+            if (!string.IsNullOrEmpty(BackgroundImage?.Source))
+            {
+                sb.Append(BackgroundImage.GetXml());
+            }
+
             foreach (var item in _items)
             {
                 sb.Append(item.GetXml());

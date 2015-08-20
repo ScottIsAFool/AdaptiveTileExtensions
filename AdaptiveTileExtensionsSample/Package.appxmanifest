@@ -38,6 +38,7 @@
         Description="AdaptiveTileExtensionsSample"
         BackgroundColor="#464646">
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide.png"/>
       </uap:VisualElements>
     </Application>
   </Applications>
