@@ -3,6 +3,14 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Runtime": "[4.0.20, )",
@@ -1538,6 +1546,14 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Runtime": "[4.0.20, )",
@@ -3163,6 +3179,14 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Runtime": "[4.0.20, )",
@@ -4760,6 +4784,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Runtime": "[4.0.20, )",
@@ -6390,6 +6422,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Runtime": "[4.0.20, )",
@@ -7987,6 +8027,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Runtime": "[4.0.20, )",
@@ -9617,6 +9665,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Runtime": "[4.0.20, )",
@@ -11215,6 +11271,20 @@
     }
   },
   "libraries": {
+    "AdaptiveTileExtensions/1.0.0": {
+      "sha512": "R0HbhW8igFQP0meykpv0JjMdmNGqu53lJIx+gryaitCV2ZE18xrlMMRrGA4EDtLT6B0yJGNMFAdNFEdI3TLIfg==",
+      "type": "Package",
+      "files": [
+        "_rels/.rels",
+        "AdaptiveTileExtensions.nuspec",
+        "lib/uap10.0/AdaptiveTileExtensions/Properties/AdaptiveTileExtensions.rd.xml",
+        "lib/uap10.0/AdaptiveTileExtensions.dll",
+        "lib/uap10.0/AdaptiveTileExtensions.pdb",
+        "lib/uap10.0/AdaptiveTileExtensions.pri",
+        "package/services/metadata/core-properties/64566dfac2f64bd680634f1077600cbf.psmdcp",
+        "[Content_Types].xml"
+      ]
+    },
     "Microsoft.CSharp/4.0.0": {
       "sha512": "/q7Wo1eEf1Nv2cuOO5h1F/MzEM0xn0MoV2kb1YpgDZFYZ/y5gkPYUA0Ws6mVADJKiMWnl2/RXb87roVhUy0QXA==",
       "type": "Package",

@@ -1535,6 +1535,14 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -3160,6 +3168,14 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -4756,6 +4772,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
         }
       }
     },
@@ -6387,6 +6411,14 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -7983,6 +8015,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
         }
       }
     },
@@ -9614,6 +9654,14 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -11210,6 +11258,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "AdaptiveTileExtensions/1.0.0": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTileExtensions.dll": {}
         }
       }
     }
@@ -14560,6 +14616,20 @@
         "ref/xamarinmac20/_._",
         "runtime.json",
         "package/services/metadata/core-properties/c80d56868865446d9ee122fad8e0fdb9.psmdcp",
+        "[Content_Types].xml"
+      ]
+    },
+    "AdaptiveTileExtensions/1.0.0": {
+      "sha512": "R0HbhW8igFQP0meykpv0JjMdmNGqu53lJIx+gryaitCV2ZE18xrlMMRrGA4EDtLT6B0yJGNMFAdNFEdI3TLIfg==",
+      "type": "Package",
+      "files": [
+        "_rels/.rels",
+        "AdaptiveTileExtensions.nuspec",
+        "lib/uap10.0/AdaptiveTileExtensions/Properties/AdaptiveTileExtensions.rd.xml",
+        "lib/uap10.0/AdaptiveTileExtensions.dll",
+        "lib/uap10.0/AdaptiveTileExtensions.pdb",
+        "lib/uap10.0/AdaptiveTileExtensions.pri",
+        "package/services/metadata/core-properties/64566dfac2f64bd680634f1077600cbf.psmdcp",
         "[Content_Types].xml"
       ]
     }
