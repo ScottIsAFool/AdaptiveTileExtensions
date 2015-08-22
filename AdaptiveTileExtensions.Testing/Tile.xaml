@@ -1,0 +1,32 @@
+﻿<at:Tile x:Class="AdaptiveTileExtensions.Testing.Tile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:at="using:AdaptiveTileExtensions"
+    mc:Ignorable="d"
+>
+    <!-- Wide Tile: -->
+    <at:TileBinding TemplateType="TileWide" Branding="NameAndLogo">
+        <at:TileImage Placement="Background" Source="http://fc02.deviantart.net/fs71/i/2013/359/a/4/deadpool_logo_1_fill_by_mr_droy-d5q6y5u.png" />
+        <at:Group>
+            <at:SubGroup>
+                <at:Text Content="You have mail" Style="Header" />
+                <at:Text Content="Someone likes you!" Style="Caption" />
+            </at:SubGroup>
+        </at:Group>
+    </at:TileBinding>
+
+    <!-- Square Tile: -->
+    <at:TileBinding TemplateType="TileMedium" Branding="None">
+        <at:Group>
+            <at:SubGroup Width="20">
+                <at:TileImage Placement="Inline" Source="http://fc02.deviantart.net/fs71/i/2013/359/a/4/deadpool_logo_1_fill_by_mr_droy-d5q6y5u.png"  />
+            </at:SubGroup>
+            <at:SubGroup>
+                <at:Text Content="You have mail" Style="Body" WrapText="True" />
+                <at:Text Content="Someone likes you!" Style="Caption" IsSubtleStyle="true" WrapText="True" Alignment="Center" />
+            </at:SubGroup>
+        </at:Group>
+    </at:TileBinding>
+</at:Tile>

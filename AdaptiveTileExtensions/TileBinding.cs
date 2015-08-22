@@ -1,121 +1,41 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using AdaptiveTileExtensions.Support;
+using System.Runtime.Serialization;
+using Windows.UI.Xaml.Markup;
 
 namespace AdaptiveTileExtensions
 {
+    [ContentProperty( Name = "Items" )]
+    [DataContract( Namespace = Defaults.Namespace )]
     public class TileBinding
     {
-        private readonly List<Item> _items = new List<Item>();
-        private Group _group = new Group();
-
-        internal TileBinding()
-        {
-            
-        }
-
-        public static TileBinding Create(TemplateType templateType)
-        {
-            return new TileBinding { TemplateType = templateType };
-        }
-
-
-        public TileImage BackgroundImage { get; set; }
-         
+        [DataMember]
         public TemplateType TemplateType { get; set; }
 
-        public Branding? Branding { get; set; }
-
+        [DataMember( EmitDefaultValue = false )]
+        public object Branding // Have to make object to keep UWP Xaml happy.  Very, very disappointing.
+        {
+            get { return branding; }
+            set { branding = value.Convert<Branding?>(); }
+        }	Branding? branding;
+        
+        [DataMember( EmitDefaultValue = false )]
         public string DisplayName { get; set; }
 
-        public TextStacking? TextStacking { get; set; }
-
-        public int? OverlayOpacity { get; set; }
-
-        public void Add(Item item)
+        [DataMember( EmitDefaultValue = false )]
+        public object TextStacking // Have to make object to keep UWP Xaml happy.  Very, very disappointing.
         {
-            var subGroup = item as SubGroup;
-            if (subGroup != null)
-            {
-                AddSubgroup(subGroup);
-            }
-            else
-            {
-                _items.Add(item);
-            }
-        }
-
-        /// <summary>
-        /// Adds the subgroup.
-        /// </summary>
-        /// <param name="subGroup">The sub group.</param>
-        /// <param name="addToNewGroup">if set to <c>true</c> [add to new group]. Once a new group has been added, no more subgroups can be added to any previous groups</param>
-        public void AddSubgroup(SubGroup subGroup, bool addToNewGroup = false)
+            get { return textStacking; }
+            set { textStacking = value.Convert<TextStacking?>(); }
+        }	TextStacking? textStacking;
+        
+        [DataMember( EmitDefaultValue = false )]
+        public object OverlayOpacity // Have to make object to keep UWP Xaml happy.  Very, very disappointing.
         {
-            if (subGroup != null)
-            {
-                if (addToNewGroup)
-                {
-                    _group = new Group();
-                }
+            get { return overlayOpacity; }
+            set { overlayOpacity = value.Convert<int?>(); }
+        }	int? overlayOpacity;
 
-                _group.SubGroups.Add(subGroup);
-
-                var groupAdded = _items.LastOrDefault(x => x is Group);
-                if (groupAdded == null || addToNewGroup)
-                {
-                    _items.Add(_group);
-                }
-            }
-        }
-
-        public void ClearItems()
-        {
-            _items.Clear();
-        }
-
-        internal string GetXml()
-        {
-            var sb = new StringBuilder($"<binding template=\"{TemplateType}\"");
-
-            if (!string.IsNullOrEmpty(DisplayName))
-            {
-                var displayName = $" displayName=\"{DisplayName}\"";
-                sb.Append(displayName);
-            }
-
-            if (Branding.HasValue)
-            {
-                var branding = $" branding=\"{Branding.Value}\"";
-                sb.Append(branding);
-            }
-
-            if (TextStacking.HasValue)
-            {
-                var textStacking = $" hint-textStacking=\"{TextStacking.Value}\"";
-                sb.Append(textStacking);
-            }
-
-            if (OverlayOpacity.HasValue)
-            {
-                var overlay = $" hint-overlay=\"{OverlayOpacity.Value}\"";
-                sb.Append(overlay);
-            }
-
-            sb.Append(">");
-
-            if (!string.IsNullOrEmpty(BackgroundImage?.Source))
-            {
-                sb.Append(BackgroundImage.GetXml());
-            }
-
-            foreach (var item in _items)
-            {
-                sb.Append(item.GetXml());
-            }
-
-            sb.Append("</binding>");
-            return sb.ToString();
-        }
+        [DataMember]
+        public ItemCollection Items { get; set; } = new ItemCollection( typeof(TileImage), typeof(Group) );
     }
 }

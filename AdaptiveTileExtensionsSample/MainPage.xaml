@@ -5,8 +5,17 @@
     xmlns:local="using:AdaptiveTileExtensionsSample"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:support="using:AdaptiveTileExtensions.Support"
     mc:Ignorable="d">
-
+    <interactivity:Interaction.Behaviors>
+        <core:EventTriggerBehavior EventName="Loaded">
+            <support:UpdateTileAction>
+                <local:Tile />
+            </support:UpdateTileAction>
+        </core:EventTriggerBehavior>
+    </interactivity:Interaction.Behaviors>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     </Grid>
