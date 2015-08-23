@@ -10,7 +10,7 @@ namespace AdaptiveTileExtensions.Support
 
 		static readonly Task<XsltProcessor> Task = new XsltProcessorFactory( new Uri( Resources.TileNotificationFactory_XsltPath ) ).Create();
 
-		public static XsltProcessor Processor => Task.IsCompleted ? Task.Result : null;
+		public static XsltProcessor Processor => Task.Result;
 
 		public static Task Initialize()
 		{
