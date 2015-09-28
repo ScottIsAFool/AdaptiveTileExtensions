@@ -1,3 +1,5 @@
+#NOTE: This is now defunct, please use the official package, details [http://blogs.msdn.com/b/tiles_and_toasts/archive/2015/08/20/introducing-notificationsextensions-for-windows-10.aspx](http://blogs.msdn.com/b/tiles_and_toasts/archive/2015/08/20/introducing-notificationsextensions-for-windows-10.aspx)
+
 # Adaptive Tile Extensions
 
 Adaptive Tile Extensions is a project to more easily allow a developer to create the xml required for adaptive extensions in Windows 10.
