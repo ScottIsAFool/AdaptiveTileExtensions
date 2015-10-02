@@ -1,60 +1,34 @@
-using System.Collections.Generic;
-using System.Text;
+using AdaptiveTileExtensions.Support;
+using System;
+using System.Runtime.Serialization;
+using Windows.UI.Xaml.Markup;
 
 namespace AdaptiveTileExtensions
 {
-    public class SubGroup : Item
+    [ContentProperty( Name = "Children" )]
+    [DataContract( Namespace = Defaults.Namespace )]
+    public class SubGroup : Group
     {
-        private readonly List<Item> _items = new List<Item>();
+        // private readonly List<Item> _items = new List<Item>();
 
         /// <summary>
         /// Gets or sets the width.
         /// NOTE: An 8px margin gets added between columns
         /// </summary>
-        public int? Width { get; set; }
-
-        public TextStacking? TextStacking { get; set; }
-
-        public void AddText(Text text)
+        [DataMember( EmitDefaultValue = false )]
+        public object Width
         {
-            _items.Add(text);
-        }
-
-        public void AddImage(TileImage tileImage)
+            get { return width; }
+            set { width = value.Convert<int?>(); }
+        }	int? width;
+        
+        [DataMember( EmitDefaultValue = false )]
+        public object TextStacking
         {
-            _items.Add(tileImage);
-        }
+            get { return textStacking; }
+            set { textStacking = value.Convert<TextStacking?>(); }
+        }	TextStacking? textStacking;
 
-        public void ClearItems()
-        {
-            _items.Clear();
-        }
-
-        internal override string GetXml()
-        {
-            var sb = new StringBuilder("<subgroup");
-
-            if (Width.HasValue)
-            {
-                var width = $" hint-weight=\"{Width.Value}\"";
-                sb.Append(width);
-            }
-
-            if (TextStacking.HasValue)
-            {
-                var textStacking = $" hint-textStacking=\"{TextStacking.Value}\"";
-                sb.Append(textStacking);
-            }
-
-            sb.Append(">");
-
-            foreach (var item in _items)
-            {
-                sb.Append(item.GetXml());
-            }
-
-            sb.Append("</subgroup>");
-            return sb.ToString();
-        }
+        protected override Type[] AllowedTypes => new[] { typeof(Text), typeof(TileImage) };
     }
 }

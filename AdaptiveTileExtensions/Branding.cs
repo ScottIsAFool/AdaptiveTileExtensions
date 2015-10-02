@@ -1,10 +1,14 @@
+using System.Runtime.Serialization;
+using AdaptiveTileExtensions.Support;
+
 namespace AdaptiveTileExtensions
 {
+    [DataContract( Namespace = Defaults.Namespace )]
     public enum Branding
     {
-        Name,
-        None,
-        Logo,
-        NameAndLogo
+        [EnumMember]Name,
+        [EnumMember]None,
+        [EnumMember]Logo,
+        [EnumMember]NameAndLogo
     }
 }

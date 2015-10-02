@@ -1,28 +1,23 @@
-using System.Collections.Generic;
-using System.Text;
+using AdaptiveTileExtensions.Support;
+using System;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Windows.UI.Xaml.Markup;
 
 namespace AdaptiveTileExtensions
 {
-    internal class Group : Item
+    [ContentProperty( Name = "Children" )]
+    [DataContract( Namespace = Defaults.Namespace )]
+    public class Group : Item
     {
-        internal Group()
+        public Group()
         {
-            SubGroups = new List<SubGroup>();
+            Children = new ItemCollection( AllowedTypes );
         }
 
-        internal List<SubGroup> SubGroups { get; set; }
-        internal override string GetXml()
-        {
-            var sb = new StringBuilder("<group>");
+        [DataMember]
+        public Collection<Item> Children { get; set; }
 
-            foreach (var subgroup in SubGroups)
-            {
-                sb.Append(subgroup.GetXml());
-            }
-
-            sb.Append("</group>");
-
-            return sb.ToString();
-        }
+        protected virtual Type[] AllowedTypes => new[] { typeof(SubGroup) };
     }
 }

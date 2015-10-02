@@ -1,7 +1,10 @@
 using System;
+using System.Runtime.Serialization;
+using AdaptiveTileExtensions.Support;
 
 namespace AdaptiveTileExtensions
 {
+    [DataContract( Namespace = Defaults.Namespace )]
     public enum TextStyle
     {
         /// <summary>
@@ -9,55 +12,55 @@ namespace AdaptiveTileExtensions
         /// Font Height: 12epx
         /// Font Weight: Regular
         /// </summary>
-        Caption,
+        [EnumMember]Caption,
 
         /// <summary>
         /// The base style
         /// Font Height: 15epx
         /// Font Weight: SemiBold
         /// </summary>
-        Base,
+        [EnumMember]Base,
 
         /// <summary>
         /// The body style
         /// Font Height: 15epx
         /// Font Weight: Regular
         /// </summary>
-        Body,
+        [EnumMember]Body,
 
         /// <summary>
         /// The caption subtle style
         /// Obsolete: Please use Caption, then set IsCaptionStyle = true
         /// </summary>
         [Obsolete("Please use Caption, then set IsCaptionStyle = true")]
-        CaptionSubtle,
+        [EnumMember]CaptionSubtle,
 
         /// <summary>
         /// The subtitle style
         /// Font Height: 20epx
         /// Font Weight: Regular
         /// </summary>
-        Subtitle,
+        [EnumMember]Subtitle,
 
         /// <summary>
         /// The title style
         /// Font Height: 24epx
         /// Font Weight: SemiLight
         /// </summary>
-        Title,
+        [EnumMember]Title,
 
         /// <summary>
         /// The subheader style
         /// Font Height: 34epx
         /// Font Weight: Light
         /// </summary>
-        Subheader,
+        [EnumMember]Subheader,
 
         /// <summary>
         /// The header style
         /// Font Height: 46epx
         /// Font Weight: Light
         /// </summary>
-        Header
+        [EnumMember]Header
     }
 }

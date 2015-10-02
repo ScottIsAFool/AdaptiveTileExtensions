@@ -1,38 +1,66 @@
-using System.Text;
+using System.Runtime.Serialization;
+using AdaptiveTileExtensions.Support;
 
 namespace AdaptiveTileExtensions
 {
+    [DataContract( Namespace = Defaults.Namespace )]
     public class Text : Item
     {
+        [DataMember]
         public string Content { get; set; }
-        public TextStyle? Style { get; set; }
-        public Alignment? Alignment { get; set; }
-        public bool? WrapText { get; set; }
-        public int? MaxLines { get; set; }
+
+        [DataMember( EmitDefaultValue = false )]
+        public object Style
+        {
+            get { return style; }
+            set { style = value.Convert<TextStyle?>(); }
+        }	TextStyle? style;
+        
+        [DataMember( EmitDefaultValue = false )]
+        public object Alignment
+        {
+            get { return alignment; }
+            set { alignment = value.Convert<Alignment?>(); }
+        }	Alignment? alignment;
+
+        [DataMember( EmitDefaultValue = false )]
+        public object WrapText
+        {
+            get { return wrapText; }
+            set { wrapText = value.Convert<bool?>(); }
+        }	bool? wrapText;
+        
+        [DataMember( EmitDefaultValue = false )]
+        public object MaxLines
+        {
+            get { return maxLines; }
+            set { maxLines = value.Convert<int?>(); }
+        }	int? maxLines;
         
         /// <summary>
         /// Gets or sets whether the subtle style is applied.
         /// This results in a 60% opacity of text
         /// </summary>
-        public bool? IsSubtleStyle { get; set; }
-
+        [DataMember( EmitDefaultValue = false )]
+        public object IsSubtleStyle
+        {
+            get { return isSubtleStyle; }
+            set { isSubtleStyle = value.Convert<bool?>(); }
+        }	bool? isSubtleStyle;
+        
         /// <summary>
         /// Gets or sets the is numeral.
         /// This results in a reduction of line height so that content above and below come extremely close to the text
         /// This is only if the TextStyle is Title, SubHeader or Header
         /// </summary>
-        public bool? IsNumeralStyle { get; set; }
-
-        public Text()
+        [DataMember( EmitDefaultValue = false )]
+        public object IsNumeralStyle
         {
-        }
+            get { return isNumeralStyle; }
+            set { isNumeralStyle = value.Convert<bool?>(); }
+        }	bool? isNumeralStyle;
 
-        public Text(string content)
-        {
-            Content = content;
-        }
-
-        internal override string GetXml()
+        /*internal override string GetXml()
         {
             var sb = new StringBuilder("<text");
 
@@ -75,6 +103,6 @@ namespace AdaptiveTileExtensions
 
             sb.Append($">{Content}</text>");
             return sb.ToString();
-        }
+        }*/
     }
 }

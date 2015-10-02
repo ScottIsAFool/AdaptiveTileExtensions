@@ -1,47 +1,36 @@
-using System.Text;
+using AdaptiveTileExtensions.Support;
+using System.Runtime.Serialization;
 
 namespace AdaptiveTileExtensions
 {
+    [DataContract( Namespace = Defaults.Namespace )]
     public class TileImage : Item
     {
-        public TileImage(ImagePlacement placement)
-        {
-            Placement = placement;
-        }
-
+        [DataMember]
         public ImagePlacement Placement { get; set; }
+
+        [DataMember]
         public string Source { get; set; }
-        public bool? RemoveMargin { get; set; }
-        public Alignment? ImageAlignment { get; set; }
-        public ImageCropping? ImageCropping { get; set; }
 
-        internal override string GetXml()
+        [DataMember( EmitDefaultValue = false )]
+        public object RemoveMargin // Have to make object to keep UWP Xaml happy.  Very, very disappointing.
         {
-            var sb = new StringBuilder($"<image placement=\"{Placement}\"");
+            get { return removeMargin; }
+            set { removeMargin = value.Convert<bool?>(); }
+        }	bool? removeMargin;
 
-            var source = $" src=\"{Source}\"";
-            sb.Append(source);
+        [DataMember( EmitDefaultValue = false )]
+        public object ImageAlignment // Have to make object to keep UWP Xaml happy.  Very, very disappointing.
+        {
+            get { return imageAlignment; }
+            set { imageAlignment = value.Convert<Alignment?>(); }
+        }	Alignment? imageAlignment;
 
-            if (RemoveMargin.HasValue)
-            {
-                var margin = $" hint-removeMargin=\"{RemoveMargin.Value}\"";
-                sb.Append(margin);
-            }
-
-            if (ImageAlignment.HasValue)
-            {
-                var alignment = $" hint-align=\"{ImageAlignment.Value}\"";
-                sb.Append(alignment);
-            }
-
-            if (ImageCropping.HasValue)
-            {
-                var cropping = $" hint-crop=\"{ImageCropping.Value}\"";
-                sb.Append(cropping);
-            }
-
-            sb.Append("/>");
-            return sb.ToString();
-        }
+        [DataMember( EmitDefaultValue = false )]
+        public object ImageCropping // Have to make object to keep UWP Xaml happy.  Very, very disappointing.
+        {
+            get { return imageCropping; }
+            set { imageCropping = value.Convert<ImageCropping?>(); }
+        }	ImageCropping? imageCropping;
     }
 }

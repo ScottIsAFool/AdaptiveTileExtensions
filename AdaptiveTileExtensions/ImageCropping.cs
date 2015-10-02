@@ -1,8 +1,12 @@
-﻿namespace AdaptiveTileExtensions
+﻿using System.Runtime.Serialization;
+using AdaptiveTileExtensions.Support;
+
+namespace AdaptiveTileExtensions
 {
+    [DataContract( Namespace = Defaults.Namespace )]
     public enum ImageCropping
     {
-        None,
-        Circle
+        [EnumMember]None,
+        [EnumMember]Circle
     }
 }

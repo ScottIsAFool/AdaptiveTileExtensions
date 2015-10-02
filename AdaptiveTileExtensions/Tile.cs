@@ -1,44 +1,21 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Windows.Data.Xml.Dom;
-using Windows.UI.Notifications;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Windows.UI.Xaml.Markup;
+using AdaptiveTileExtensions.Support;
 
 namespace AdaptiveTileExtensions
 {
-    public class Tile
+	[ContentProperty( Name = "Bindings" )]
+    [DataContract( Namespace = Defaults.Namespace )]
+	public class Tile
     {
-        private const string Xml = "<tile version=\"{0}\"><visual>{1}</visual></tile>";
+        [DataMember]
+        public Collection<TileBinding> Bindings { get; set; } = new Collection<TileBinding>();
 
-        internal Tile(string version)
-        {
-            Version = version;
-            Tiles = new List<TileBinding>();
-        }
+        [DataMember]
+        public string Version { get; set; } = "3";
 
-        public string Version { get; set; }
-
-        public List<TileBinding> Tiles { get; set; }
-
-        private string GetXmlInternal()
-        {
-            var sb = new StringBuilder();
-            foreach (var tile in Tiles)
-            {
-                sb.Append(tile.GetXml());
-            }
-
-            var xml = string.Format(Xml, Version, sb);
-            return xml;
-        }
-
-        public TileNotification GetNotification()
-        {
-            var doc = new XmlDocument();
-            var xml = GetXmlInternal();
-            doc.LoadXml(xml);
-
-            return new TileNotification(doc);
-        }
+        /*private const string Xml = "<tile version=\"{0}\"><visual>{1}</visual></tile>";
+        }*/
     }
 }
